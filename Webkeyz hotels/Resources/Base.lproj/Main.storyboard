@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6qY-hh-ZjD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6sj-Q0-TuG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Hotels-->
+        <!--Hotels waterfall grid-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HotelsViewController" customModule="Webkeyz_hotels" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,8 +18,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fYT-fN-E5R">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="doc-eA-P1y">
                                     <size key="itemSize" width="200" height="200"/>
                                     <size key="estimatedItemSize" width="140" height="152"/>
@@ -35,7 +35,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3uN-Fx-3uG">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3uN-Fx-3uG" customClass="BaseView" customModule="Webkeyz_hotels" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YE8-6l-ckc">
@@ -61,8 +61,14 @@
                                                         <constraint firstItem="YE8-6l-ckc" firstAttribute="leading" secondItem="3uN-Fx-3uG" secondAttribute="leading" constant="5" id="POh-1g-JNQ"/>
                                                         <constraint firstAttribute="trailing" secondItem="oei-ou-OXh" secondAttribute="trailing" constant="5" id="R23-rO-Trk"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="3uN-Fx-3uG" firstAttribute="top" secondItem="mgi-YL-TgH" secondAttribute="top" id="LyA-8L-lxB"/>
                                                 <constraint firstAttribute="bottom" secondItem="3uN-Fx-3uG" secondAttribute="bottom" id="PeH-aN-u48"/>
@@ -70,6 +76,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="3uN-Fx-3uG" secondAttribute="trailing" id="vQB-cq-s8D"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="200" height="200"/>
                                         <connections>
                                             <outlet property="hotelImage" destination="YE8-6l-ckc" id="PcZ-Uq-WL7"/>
@@ -92,14 +99,110 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fYT-fN-E5R" secondAttribute="bottom" id="zvk-ww-SuY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Hotels" id="ZL2-Cr-7CM"/>
+                    <navigationItem key="navigationItem" title="Hotels waterfall grid" id="ZL2-Cr-7CM"/>
                     <connections>
                         <outlet property="collectionView" destination="fYT-fN-E5R" id="Swr-Uo-e9b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="763.768115942029" y="-37.5"/>
+            <point key="canvasLocation" x="1673.913043478261" y="-37.5"/>
+        </scene>
+        <!--Hotels list-->
+        <scene sceneID="UMU-fV-UTq">
+            <objects>
+                <viewController storyboardIdentifier="HotelsTableViewController" id="M9w-IT-hwo" customClass="HotelsTableViewController" customModule="Webkeyz_hotels" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Fq-ln-E4f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="230" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g7S-9l-McF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HotelsTableViewCell" rowHeight="230" id="zE8-rM-2TV" customClass="HotelsTableViewCell" customModule="Webkeyz_Hotels" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="230"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zE8-rM-2TV" id="gXV-1o-dZ9">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rbk-8e-I5z" customClass="BaseView" customModule="Webkeyz_Hotels" customModuleProvider="target">
+                                                    <rect key="frame" x="10" y="10" width="394" height="210"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uid-5b-QUA">
+                                                            <rect key="frame" x="5" y="5" width="384" height="170"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="170" id="FXQ-7q-ZPc"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="NO"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tkf-Ho-S4B">
+                                                            <rect key="frame" x="5" y="180" width="384" height="25"/>
+                                                            <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Tkf-Ho-S4B" secondAttribute="trailing" constant="5" id="2jO-BI-MS6"/>
+                                                        <constraint firstItem="Tkf-Ho-S4B" firstAttribute="top" secondItem="Uid-5b-QUA" secondAttribute="bottom" constant="5" id="MNC-qh-WIL"/>
+                                                        <constraint firstItem="Uid-5b-QUA" firstAttribute="top" secondItem="Rbk-8e-I5z" secondAttribute="top" constant="5" id="TDc-8Y-PBX"/>
+                                                        <constraint firstItem="Uid-5b-QUA" firstAttribute="leading" secondItem="Rbk-8e-I5z" secondAttribute="leading" constant="5" id="ZAJ-7L-ctb"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Uid-5b-QUA" secondAttribute="trailing" constant="5" id="a1M-H2-Vt7"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Tkf-Ho-S4B" secondAttribute="bottom" constant="5" id="ft6-pN-Gnc"/>
+                                                        <constraint firstItem="Tkf-Ho-S4B" firstAttribute="leading" secondItem="Rbk-8e-I5z" secondAttribute="leading" constant="5" id="sCL-Sv-DMX"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isShadow" value="NO"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Rbk-8e-I5z" firstAttribute="leading" secondItem="gXV-1o-dZ9" secondAttribute="leading" constant="10" id="3uo-Ub-TDJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="Rbk-8e-I5z" secondAttribute="trailing" constant="10" id="5x0-Jk-yE4"/>
+                                                <constraint firstItem="Rbk-8e-I5z" firstAttribute="top" secondItem="gXV-1o-dZ9" secondAttribute="top" constant="10" id="8wo-YJ-4Om"/>
+                                                <constraint firstAttribute="bottom" secondItem="Rbk-8e-I5z" secondAttribute="bottom" constant="10" id="E5D-tI-lKp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="hotelImage" destination="Uid-5b-QUA" id="Ryz-qC-OWG"/>
+                                            <outlet property="hotelName" destination="Tkf-Ho-S4B" id="mTE-al-rnL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="M9w-IT-hwo" id="Ni0-if-kDQ"/>
+                                    <outlet property="delegate" destination="M9w-IT-hwo" id="MrZ-S0-1oJ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yle-q9-muc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="g7S-9l-McF" firstAttribute="top" secondItem="yle-q9-muc" secondAttribute="top" id="Aaf-Nr-B23"/>
+                            <constraint firstItem="g7S-9l-McF" firstAttribute="leading" secondItem="yle-q9-muc" secondAttribute="leading" id="Heu-Kd-y7k"/>
+                            <constraint firstItem="g7S-9l-McF" firstAttribute="bottom" secondItem="yle-q9-muc" secondAttribute="bottom" id="NRk-ZV-9uk"/>
+                            <constraint firstItem="g7S-9l-McF" firstAttribute="trailing" secondItem="yle-q9-muc" secondAttribute="trailing" id="Vtz-ff-AIt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Hotels list" id="s5y-GA-4X0"/>
+                    <connections>
+                        <outlet property="tableView" destination="g7S-9l-McF" id="gti-yT-Kou"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y6e-Nj-U2p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1674" y="887"/>
         </scene>
         <!--Hotel Details View Controller-->
         <scene sceneID="rHo-Qf-mbo">
@@ -109,7 +212,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sDt-aW-7Fo">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sDt-aW-7Fo">
                                 <rect key="frame" x="0.0" y="44" width="414" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="gem-3L-4pH"/>
@@ -118,28 +221,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7ik-LG-k7z">
                                 <rect key="frame" x="10" y="264" width="394" height="368"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Trv-vp-p5x">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDJ-db-DzB">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="84.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDJ-db-DzB">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="84.5"/>
-                                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jsN-2p-6Mb">
+                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ZV-PD-HHc">
                                         <rect key="frame" x="0.0" y="94.5" width="394" height="84.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ZV-PD-HHc">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="84.5"/>
-                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uB5-0E-L67">
                                         <rect key="frame" x="0.0" y="189" width="394" height="84.5"/>
                                         <subviews>
@@ -209,16 +302,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nS3-fi-K9x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576.8115942028987" y="-37.5"/>
+            <point key="canvasLocation" x="3032" y="438"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Waterfall-->
         <scene sceneID="gbY-oi-Xaf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6qY-hh-ZjD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Waterfall" image="waterfall" id="Z72-gv-AlU"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="niF-la-VPk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="niF-la-VPk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <color key="barTintColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -227,12 +326,60 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qkp-c4-3Zh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-146.37681159420291" y="-37.5"/>
+            <point key="canvasLocation" x="763.768115942029" y="-37.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="8ZS-AB-PFb">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6sj-Q0-TuG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ey2-8e-Hpk">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="6qY-hh-ZjD" kind="relationship" relationship="viewControllers" id="cVN-xs-FHg"/>
+                        <segue destination="rsl-uo-BHc" kind="relationship" relationship="viewControllers" id="tjR-oB-G5K"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dtH-Uu-ASK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-788" y="438"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="8BO-iO-2sa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rsl-uo-BHc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="List" image="List" id="MTB-hV-COU"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="VG5-2U-XmC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <color key="barTintColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="M9w-IT-hwo" kind="relationship" relationship="rootViewController" id="FQA-O7-LKd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogi-Am-49v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="887"/>
         </scene>
     </scenes>
     <resources>
+        <image name="List" width="24" height="24"/>
+        <image name="waterfall" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -16,7 +16,6 @@ class HotelDetailsViewController: UIViewController {
     @IBOutlet weak var hotelAddress: UILabel!
     @IBOutlet weak var actualPrice: UILabel!
     @IBOutlet weak var normalPrice: UILabel!
-    
     @IBOutlet weak var mapView: MKMapView!
     
     //MARK:- Variables and constants
@@ -34,14 +33,28 @@ class HotelDetailsViewController: UIViewController {
         
         // set corner radius for map view
         mapView.layer.cornerRadius = 20
+        
+        navigationItem.largeTitleDisplayMode = .never
+
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     //MARK:- Setting data for each outlet
     func oultetsData(){
         hotelName.text = data?.summary?.hotelName
         hotelImage.setImage(with: data?.image.first?.url ?? "")
-        actualPrice.text = "\(data?.summary?.lowRate ?? 0)"
-        normalPrice.text = "\(data?.summary?.highRate ?? 0)"
+        actualPrice.text = "\(data?.summary?.lowRate ?? 0) $"
+        normalPrice.text = "\(data?.summary?.highRate ?? 0) $"
         hotelAddress.text = data?.location?.address ?? ""
         
         //Round bottom corners of hotel image
@@ -65,7 +78,7 @@ class HotelDetailsViewController: UIViewController {
 
     @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         self.navigationController?.isNavigationBarHidden = false
-        self.tabBarController?.tabBar.isHidden = false
+        self.tabBarController?.tabBar.isHidden = true
         sender.view?.removeFromSuperview()
     }
     

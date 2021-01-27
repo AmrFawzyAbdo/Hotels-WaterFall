@@ -20,7 +20,7 @@ extension UIImageView {
         let resource = ImageResource(downloadURL: url, cacheKey: urlString)
         var kf = self.kf
         kf.indicatorType = .activity
-        self.kf.setImage(with: resource)
+        self.kf.setImage(with: resource,placeholder: UIImage(named: "SplashScreen"))
     }
     
     //MARK:- RoundCorners

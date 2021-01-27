@@ -34,6 +34,7 @@ class HotelsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // Layout of collectionView
         let layout = CollectionViewWaterfallLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
