@@ -21,6 +21,8 @@
 		EDFBB30025C120EE001CC31F /* CollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFBB2FF25C120EE001CC31F /* CollectionViewWaterfallLayout.swift */; };
 		EDFBB30425C1212C001CC31F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFBB30325C1212C001CC31F /* BaseView.swift */; };
 		EDFBB30725C121C8001CC31F /* HotelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFBB30625C121C8001CC31F /* HotelDetailsViewController.swift */; };
+		EDFBB30E25C19F9B001CC31F /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFBB30D25C19F9A001CC31F /* ImageExtensions.swift */; };
+		EDFBB31525C1AFBD001CC31F /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFBB31425C1AFBC001CC31F /* NetworkReachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		EDFBB2FF25C120EE001CC31F /* CollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
 		EDFBB30325C1212C001CC31F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		EDFBB30625C121C8001CC31F /* HotelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetailsViewController.swift; sourceTree = "<group>"; };
+		EDFBB30D25C19F9A001CC31F /* ImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtensions.swift; sourceTree = "<group>"; };
+		EDFBB31425C1AFBC001CC31F /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
 		FEBA5FDB31C22B8040E1923E /* Pods-Webkeyz hotels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Webkeyz hotels.debug.xcconfig"; path = "Target Support Files/Pods-Webkeyz hotels/Pods-Webkeyz hotels.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +100,7 @@
 			children = (
 				EDFBB2EB25C11C10001CC31F /* Models */,
 				EDFBB2E925C11C00001CC31F /* Network */,
+				EDFBB2F125C11C34001CC31F /* Extensions */,
 				EDFBB2EC25C11C18001CC31F /* Views */,
 				EDFBB2CE25C11B4E001CC31F /* AppDelegate.swift */,
 				EDFBB2D025C11B4E001CC31F /* SceneDelegate.swift */,
@@ -112,6 +117,7 @@
 			children = (
 				EDFBB2F525C11C6D001CC31F /* ApiClient.swift */,
 				EDFBB2F825C11C89001CC31F /* Constants.swift */,
+				EDFBB31425C1AFBC001CC31F /* NetworkReachability.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -127,7 +133,6 @@
 		EDFBB2EC25C11C18001CC31F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EDFBB2F125C11C34001CC31F /* Extensions */,
 				EDFBB2F025C11C29001CC31F /* Cells */,
 				EDFBB2EE25C11C1E001CC31F /* Controllers */,
 			);
@@ -156,6 +161,7 @@
 			children = (
 				EDFBB2FF25C120EE001CC31F /* CollectionViewWaterfallLayout.swift */,
 				EDFBB30325C1212C001CC31F /* BaseView.swift */,
+				EDFBB30D25C19F9A001CC31F /* ImageExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -276,6 +282,7 @@
 			files = (
 				EDFBB2D325C11B4E001CC31F /* HotelsViewController.swift in Sources */,
 				EDFBB2CF25C11B4E001CC31F /* AppDelegate.swift in Sources */,
+				EDFBB30E25C19F9B001CC31F /* ImageExtensions.swift in Sources */,
 				EDFBB2F325C11C58001CC31F /* Hotels.swift in Sources */,
 				EDFBB2D125C11B4E001CC31F /* SceneDelegate.swift in Sources */,
 				EDFBB2F625C11C6D001CC31F /* ApiClient.swift in Sources */,
@@ -284,6 +291,7 @@
 				EDFBB30425C1212C001CC31F /* BaseView.swift in Sources */,
 				EDFBB2FD25C11F59001CC31F /* HotelsCollectionViewCell.swift in Sources */,
 				EDFBB2F925C11C89001CC31F /* Constants.swift in Sources */,
+				EDFBB31525C1AFBD001CC31F /* NetworkReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

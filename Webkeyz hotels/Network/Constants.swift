@@ -9,6 +9,7 @@ import Foundation
 
 struct Constants {
     
+    //MARK:- Base URL
     struct ProductionServer {
         static let baseURL = "https://webkeyztest.getsandbox.com/hotels"
     }

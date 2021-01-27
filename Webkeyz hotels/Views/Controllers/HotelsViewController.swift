@@ -9,11 +9,15 @@ import UIKit
 import Kingfisher
 
 class HotelsViewController: UIViewController {
-
+    
+    //MARK:- Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     
+    //MARK:- Variables
+    //Contains array of Hotel data
     var hotelsData = [Hotel]()
     
+    // Random cell size
     lazy var cellSizes: [CGSize] = {
         var cellSizes = [CGSize]()
         
@@ -29,28 +33,30 @@ class HotelsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Layout of collectionView
         let layout = CollectionViewWaterfallLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-//        layout.headerInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-//        layout.headerHeight = 50
-//        layout.footerHeight = 20
         layout.minimumColumnSpacing = 5
         layout.minimumInteritemSpacing = 10
         
         collectionView.collectionViewLayout = layout
-//        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: CollectionViewWaterfallElementKindSectionHeader, withReuseIdentifier: "Header")
-//        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: CollectionViewWaterfallElementKindSectionFooter, withReuseIdentifier: "Footer")
         
         getHotels()
+        
     }
     
+    //MARK:- Calling API that retrive hotels data
     
     func getHotels(){
+        //Make a toast
         self.view.makeToastActivity(.center)
         APIClient().GetHotels { (res) in
             self.view.hideToastActivity()
             print(res)
             self.hotelsData = res
+            
+            // Reload tableView
             self.collectionView.reloadData()
         } onError: { (error) in
             self.view.hideToastActivity()
@@ -62,6 +68,8 @@ class HotelsViewController: UIViewController {
 }
 
     
+//MARK:- UICollectionViewDataSource and, UICollectionViewDelegate
+
 extension HotelsViewController : UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return hotelsData.count
@@ -82,26 +90,6 @@ extension HotelsViewController : UICollectionViewDataSource,UICollectionViewDele
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        let reusableView: UICollectionReusableView?
-//
-//        switch kind {
-//        case CollectionViewWaterfallElementKindSectionHeader:
-//            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
-//            header.backgroundColor = .black
-//            header.largeContentTitle = "Hotels"
-//            reusableView = header
-//        case CollectionViewWaterfallElementKindSectionFooter:
-//            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath)
-//            footer.backgroundColor = .clear
-//            reusableView = footer
-//        default:
-//            reusableView = nil
-//        }
-//
-//        return reusableView!
-//    }
 }
 
 
@@ -114,23 +102,3 @@ extension HotelsViewController: CollectionViewWaterfallLayoutDelegate {
     
 
 
-
-
-extension UIImageView {
-    func setImage(with urlString: String){
-        guard let url = URL.init(string: urlString) else {
-            return
-        }
-        let resource = ImageResource(downloadURL: url, cacheKey: urlString)
-        var kf = self.kf
-        kf.indicatorType = .activity
-        self.kf.setImage(with: resource)
-    }
-}
-
-extension UIImageView {
-    func roundCorners(with CACornerMask: CACornerMask, radius: CGFloat) {
-              self.layer.cornerRadius = radius
-              self.layer.maskedCorners = [CACornerMask]
-        }
-}
