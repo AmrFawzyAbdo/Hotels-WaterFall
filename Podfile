@@ -9,6 +9,6 @@ target 'Webkeyz hotels' do
 pod 'Alamofire'
 pod 'SwiftKeychainWrapper'
 pod 'Toast-Swift'
-pod 'Kingfisher', '~> 5.0.1'
+pod 'Kingfisher', '~> 6.0'
 
 end
