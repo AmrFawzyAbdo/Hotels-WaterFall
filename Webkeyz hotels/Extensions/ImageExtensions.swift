@@ -17,13 +17,14 @@ extension UIImageView {
         guard let url = URL.init(string: urlString) else {
             return
         }
+        var kf = self.kf
+        kf.indicatorType = .activity
         self.kf.setImage(with: url, completionHandler:  { result in
             switch result {
             case .success(let value):
                 self.image = value.image
-            case .failure(let error):
+            case .failure( _):
                 self.image = UIImage(named: "SplashScreen")
-                print("Error: \(error)")
             }
         })
     }
